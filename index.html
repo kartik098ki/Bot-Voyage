@@ -572,7 +572,7 @@
             line-height: 1.5;
         }
 
-        /* Hidden Gems Section */
+        /* Hidden Gems Section - Enhanced for Mobile */
         .gems-section {
             position: relative;
         }
@@ -973,7 +973,7 @@
             100% { transform: scale(1); }
         }
 
-        /* Activities Section */
+        /* Activities Section - Enhanced for Mobile */
         .activities {
             background: rgba(15, 23, 42, 0.5);
             position: relative;
@@ -3975,13 +3975,24 @@
             /* Enhanced Mobile Horizontal Scrolling Sections */
             .gems-grid,
             .activities-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
+                display: flex;
+                flex-direction: row;
+                overflow-x: auto;
                 gap: 1rem;
+                padding-bottom: 0.5rem;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .gems-grid::-webkit-scrollbar,
+            .activities-grid::-webkit-scrollbar {
+                display: none;
             }
 
             .gem-card,
             .activity-card {
+                flex: 0 0 auto;
+                width: 280px;
                 border-radius: 20px;
                 box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
                 border: 1px solid rgba(255, 255, 255, 0.15);
@@ -5795,8 +5806,6 @@
         videoClose.addEventListener('click', () => {
             videoModal.classList.remove('active');
             document.body.style.overflow = 'auto';
-            videoPlayer.pause();
-            videoPlayer.currentTime = 0;
         });
 
         // Close modal when clicking outside
@@ -6174,15 +6183,6 @@
                 // Show corresponding content
                 const tabId = tab.getAttribute('data-tab');
                 document.getElementById(`${tabId}-tab`).classList.add('active');
-            });
-        });
-
-        // FAQ Functionality
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                // Toggle active class
-                item.classList.toggle('active');
             });
         });
 
