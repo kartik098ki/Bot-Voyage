@@ -1964,6 +1964,358 @@
             box-shadow: 0 5px 15px rgba(236, 72, 153, 0.4);
         }
 
+        /* Account Modal */
+        .account-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .account-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .account-content {
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .account-modal.active .account-content {
+            transform: translateY(0);
+        }
+
+        .account-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            animation: shimmer 3s infinite;
+        }
+
+        .account-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .account-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light);
+        }
+
+        .account-close {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .account-close:hover {
+            color: var(--light);
+        }
+
+        .account-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-avatar i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        .profile-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--light);
+            margin-bottom: 0.3rem;
+        }
+
+        .profile-email {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .edit-profile-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .edit-profile-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .account-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .account-tab {
+            flex: 1;
+            padding: 0.8rem;
+            background: transparent;
+            color: var(--gray);
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .account-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .account-tab-content {
+            display: none;
+        }
+
+        .account-tab-content.active {
+            display: block;
+        }
+
+        .account-login {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .login-form-group {
+            margin-bottom: 1rem;
+        }
+
+        .login-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+            font-weight: 500;
+        }
+
+        .login-input {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .login-input:focus {
+            border-color: var(--primary);
+        }
+
+        .login-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .signup-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .signup-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .account-bookings {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .booking-item {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .booking-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .booking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .booking-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        .booking-date {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .booking-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+        }
+
+        .booking-price {
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        .booking-status {
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        .account-trips {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .trip-item {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .trip-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .trip-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .trip-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        .trip-date {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .trip-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+        }
+
+        .trip-budget {
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        .trip-status {
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
         /* Search Results Page */
         .search-results {
             display: none;
@@ -4329,6 +4681,9 @@
     <!-- AI Vision Modal -->
     <div class="ai-vision-modal" id="aiVisionModal">
         <div class="ai-vision-content">
+            <button class="ai-vision-close" id="aiVisionCloseBtn">
+                <i class="fas fa-times"></i>
+            </button>
             <h3 class="ai-vision-title">AI Vision</h3>
             <p class="collab-message">Take a photo and let AI tell you all about it</p>
             
@@ -4356,7 +4711,107 @@
             
             <div class="ai-vision-actions">
                 <button class="ai-vision-btn" id="aiVisionAnalyzeBtn">Analyze Photo</button>
-                <button class="ai-vision-btn ai-vision-close" id="aiVisionModalClose">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Account Modal -->
+    <div class="account-modal" id="accountModal">
+        <div class="account-content">
+            <div class="account-header">
+                <h3 class="account-title">My Account</h3>
+                <button class="account-close" id="accountClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="account-profile">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-name">Guest User</div>
+                <div class="profile-email">guest@bot-voyage.com</div>
+                <button class="edit-profile-btn">
+                    <i class="fas fa-edit"></i>
+                    Edit Profile
+                </button>
+            </div>
+            
+            <div class="account-tabs">
+                <button class="account-tab active" data-tab="login">Login/Signup</button>
+                <button class="account-tab" data-tab="bookings">My Bookings</button>
+                <button class="account-tab" data-tab="trips">My Trips</button>
+            </div>
+            
+            <div class="account-tab-content active" id="login-tab">
+                <div class="account-login">
+                    <div class="login-form-group">
+                        <label class="login-label">Email</label>
+                        <input type="email" class="login-input" placeholder="Enter your email">
+                    </div>
+                    
+                    <div class="login-form-group">
+                        <label class="login-label">Password</label>
+                        <input type="password" class="login-input" placeholder="Enter your password">
+                    </div>
+                    
+                    <div class="login-actions">
+                        <button class="login-btn">Login</button>
+                        <button class="login-btn signup-btn">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="account-tab-content" id="bookings-tab">
+                <div class="account-bookings">
+                    <div class="booking-item">
+                        <div class="booking-header">
+                            <div class="booking-name">Himalayan Trekking Expedition</div>
+                            <div class="booking-date">Dec 15-20, 2023</div>
+                        </div>
+                        <div class="booking-details">
+                            <div class="booking-price">₹8,999</div>
+                            <div class="booking-status">Confirmed</div>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-item">
+                        <div class="booking-header">
+                            <div class="booking-name">Scuba Diving in Andaman</div>
+                            <div class="booking-date">Jan 5-7, 2024</div>
+                        </div>
+                        <div class="booking-details">
+                            <div class="booking-price">₹6,499</div>
+                            <div class="booking-status">Pending</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="account-tab-content" id="trips-tab">
+                <div class="account-trips">
+                    <div class="trip-item">
+                        <div class="trip-header">
+                            <div class="trip-name">Goa Weekend Trip</div>
+                            <div class="trip-date">Dec 15-17, 2023</div>
+                        </div>
+                        <div class="trip-details">
+                            <div class="trip-budget">Budget: ₹15,000</div>
+                            <div class="trip-status">Planned</div>
+                        </div>
+                    </div>
+                    
+                    <div class="trip-item">
+                        <div class="trip-header">
+                            <div class="trip-name">Rajasthan Adventure</div>
+                            <div class="trip-date">Jan 5-10, 2024</div>
+                        </div>
+                        <div class="trip-details">
+                            <div class="trip-budget">Budget: ₹25,000</div>
+                            <div class="trip-status">In Progress</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -4957,6 +5412,10 @@
 
     <!-- Mobile Bottom Navigation -->
     <div class="mobile-bottom-nav">
+        <button class="bottom-nav-btn" id="addBtn">
+            <i class="fas fa-camera"></i>
+            <span>AI Vision</span>
+        </button>
         <button class="bottom-nav-btn" id="createBtn">
             <i class="fas fa-plus-circle"></i>
             <span>Create</span>
@@ -4968,10 +5427,6 @@
         <button class="bottom-nav-btn" id="accountBtn">
             <i class="fas fa-user-circle"></i>
             <span>Account</span>
-        </button>
-        <button class="bottom-nav-btn" id="addBtn">
-            <i class="fas fa-plus"></i>
-            <span>Add</span>
         </button>
     </div>
 
@@ -5046,12 +5501,19 @@
         // AI Vision Modal Elements
         const aiVisionBtn = document.getElementById('aiVisionBtn');
         const aiVisionModal = document.getElementById('aiVisionModal');
-        const aiVisionClose = document.getElementById('aiVisionModalClose');
+        const aiVisionCloseBtn = document.getElementById('aiVisionCloseBtn');
         const aiVisionUpload = document.getElementById('aiVisionUpload');
         const aiVisionAnalyzeBtn = document.getElementById('aiVisionAnalyzeBtn');
         const aiVisionResult = document.getElementById('aiVisionResult');
         const aiVisionResultText = document.getElementById('aiVisionResultText');
         const aiVisionVoiceBtn = document.getElementById('aiVisionVoiceBtn');
+
+        // Account Modal Elements
+        const accountBtn = document.getElementById('accountBtn');
+        const accountModal = document.getElementById('accountModal');
+        const accountClose = document.getElementById('accountClose');
+        const accountTabs = document.querySelectorAll('.account-tab');
+        const accountTabContents = document.querySelectorAll('.account-tab-content');
 
         // Weather Elements
         const weatherWidget = document.getElementById('weatherWidget');
@@ -5082,7 +5544,6 @@
         // Bottom Navigation Elements
         const createBtn = document.getElementById('createBtn');
         const aiTalkBtn = document.getElementById('aiTalkBtn');
-        const accountBtn = document.getElementById('accountBtn');
         const addBtn = document.getElementById('addBtn');
 
         // Map variable
@@ -5607,12 +6068,7 @@
             document.body.style.overflow = 'hidden';
         });
 
-        aiVisionClose.addEventListener('click', () => {
-            aiVisionModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-
-        aiVisionModalClose.addEventListener('click', () => {
+        aiVisionCloseBtn.addEventListener('click', () => {
             aiVisionModal.classList.remove('active');
             document.body.style.overflow = 'auto';
         });
@@ -5659,13 +6115,66 @@
 
         // AI Vision voice functionality
         aiVisionVoiceBtn.addEventListener('click', () => {
-            // In a real app, this would use text-to-speech
-            // For demo, we'll just show a message
-            const originalText = aiVisionVoiceBtn.innerHTML;
-            aiVisionVoiceBtn.innerHTML = '<i class="fas fa-check"></i> Playing';
-            setTimeout(() => {
-                aiVisionVoiceBtn.innerHTML = originalText;
-            }, 3000);
+            const text = aiVisionResultText.textContent;
+            
+            // Check if browser supports speech synthesis
+            if ('speechSynthesis' in window) {
+                // Create a new speech synthesis utterance
+                const utterance = new SpeechSynthesisUtterance(text);
+                
+                // Set voice parameters
+                utterance.rate = 0.9;
+                utterance.pitch = 1;
+                utterance.volume = 1;
+                
+                // Speak the text
+                speechSynthesis.speak(utterance);
+                
+                // Show feedback
+                const originalHTML = aiVisionVoiceBtn.innerHTML;
+                aiVisionVoiceBtn.innerHTML = '<i class="fas fa-check"></i> Playing';
+                setTimeout(() => {
+                    aiVisionVoiceBtn.innerHTML = originalHTML;
+                }, 3000);
+            } else {
+                // Fallback for browsers that don't support speech synthesis
+                alert('Your browser does not support text-to-speech functionality.');
+            }
+        });
+
+        // Account Modal Functionality
+        accountBtn.addEventListener('click', () => {
+            accountModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        accountClose.addEventListener('click', () => {
+            accountModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        accountModal.addEventListener('click', (e) => {
+            if (e.target === accountModal) {
+                accountModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Account Tab switching functionality
+        accountTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                accountTabs.forEach(t => t.classList.remove('active'));
+                accountTabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
         });
 
         // FAQ Functionality
@@ -6108,14 +6617,8 @@
             chatInput.focus();
         });
 
-        accountBtn.addEventListener('click', () => {
-            // Open account
-            loginModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
         addBtn.addEventListener('click', () => {
-            // Add something
+            // Open AI Vision
             aiVisionModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
