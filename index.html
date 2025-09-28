@@ -768,6 +768,171 @@
             transform: translateY(-2px);
         }
 
+        /* Features Section - Redesigned */
+        .features-section {
+            position: relative;
+            padding: 5rem 1rem;
+            overflow: hidden;
+        }
+
+        .features-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-title {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(90deg, var(--light), var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            position: relative;
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 300px;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .feature-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-icon-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon-wrapper::after {
+            opacity: 0.3;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--light);
+            z-index: 2;
+        }
+
+        .feature-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--light);
+        }
+
+        .feature-description {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .feature-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+
+        .feature-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .feature-btn:hover::before {
+            left: 100%;
+        }
+
+        .feature-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+        }
+
         /* Activities Section */
         .activities {
             background: rgba(15, 23, 42, 0.5);
@@ -978,6 +1143,224 @@
         }
 
         .activity-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: rgba(15, 23, 42, 0.5);
+            position: relative;
+        }
+
+        .faq-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--light);
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.2rem 1.2rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        /* Split Money Modal */
+        .split-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .split-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .split-content {
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+
+        .split-modal.active .split-content {
+            transform: translateY(0);
+        }
+
+        .split-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        .split-form {
+            margin-bottom: 1.5rem;
+        }
+
+        .split-form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .split-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+            font-weight: 500;
+        }
+
+        .split-input {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .split-input:focus {
+            border-color: var(--primary);
+        }
+
+        .split-people {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .split-people-btn {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .split-people-count {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        .split-result {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .split-result.show {
+            display: block;
+        }
+
+        .split-result-text {
+            font-size: 1.1rem;
+            color: var(--light);
+        }
+
+        .split-result-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 0.5rem;
+        }
+
+        .split-close {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .split-close:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
         }
@@ -2131,6 +2514,8 @@
         .join-input-container {
             display: flex;
             margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .join-input {
@@ -2139,9 +2524,10 @@
             color: var(--light);
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 0.8rem 1rem;
-            border-radius: 12px 0 0 12px;
+            border-radius: 12px;
             font-size: 1rem;
             outline: none;
+            min-width: 150px;
         }
 
         .join-input:focus {
@@ -2153,10 +2539,11 @@
             color: white;
             border: none;
             padding: 0 1.5rem;
-            border-radius: 0 12px 12px 0;
+            border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            white-space: nowrap;
         }
 
         .join-btn:hover {
@@ -2322,6 +2709,7 @@
                 scrollbar-width: none;
                 gap: 0.5rem;
                 margin-bottom: 1rem;
+                justify-content: flex-start;
             }
 
             .popular-searches::-webkit-scrollbar {
@@ -2599,6 +2987,56 @@
                 font-size: 1.2rem;
                 padding: 0.6rem 1.2rem;
             }
+
+            .join-input-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .join-input {
+                margin-bottom: 0.5rem;
+                border-radius: 12px;
+            }
+
+            .join-btn {
+                border-radius: 12px;
+                padding: 0.8rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+                min-height: 250px;
+            }
+
+            .feature-icon-wrapper {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 1rem;
+            }
+
+            .feature-icon {
+                font-size: 1.5rem;
+            }
+
+            .feature-name {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .feature-description {
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+            }
+
+            .feature-btn {
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -2685,6 +3123,43 @@
                 font-size: 1.1rem;
                 padding: 0.5rem 1rem;
             }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .footer-box {
+                padding: 1rem;
+            }
+
+            .footer-content {
+                gap: 1rem;
+            }
+
+            .footer-column {
+                margin-bottom: 1.5rem;
+            }
+
+            .footer-column h3 {
+                margin-bottom: 0.8rem;
+            }
+
+            .footer-links li {
+                margin-bottom: 0.5rem;
+            }
+
+            .footer-links a {
+                font-size: 0.8rem;
+            }
+
+            .social-links {
+                margin-top: 0.8rem;
+            }
+
+            .footer-bottom {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -2707,7 +3182,7 @@
                 <i class="fas fa-sun weather-icon" id="weatherIcon"></i>
                 <div class="weather-info">
                     <div class="weather-temp" id="weatherTemp">28°C</div>
-                    <div class="weather-location" id="weatherLocation">Mumbai</div>
+                    <div class="weather-location" id="weatherLocation">Delhi</div>
                 </div>
             </div>
             <button class="login-btn" id="loginBtn">Login</button>
@@ -2740,7 +3215,7 @@
                 <i class="fas fa-sun weather-icon" id="mobileWeatherIcon"></i>
                 <div class="weather-info">
                     <div class="weather-temp" id="mobileWeatherTemp">28°C</div>
-                    <div class="weather-location" id="mobileWeatherLocation">Mumbai</div>
+                    <div class="weather-location" id="mobileWeatherLocation">Delhi</div>
                 </div>
             </div>
         </div>
@@ -2813,6 +3288,43 @@
             </div>
             
             <button class="collab-close" id="collabClose">Close</button>
+        </div>
+    </div>
+
+    <!-- Split Money Modal -->
+    <div class="split-modal" id="splitModal">
+        <div class="split-content">
+            <h3 class="split-title">Split Expenses</h3>
+            <p class="collab-message">Easily split travel expenses with your friends</p>
+            
+            <div class="split-form">
+                <div class="split-form-group">
+                    <label class="split-label">Total Amount (₹)</label>
+                    <input type="number" class="split-input" id="splitAmount" placeholder="Enter total amount">
+                </div>
+                
+                <div class="split-form-group">
+                    <label class="split-label">Number of People</label>
+                    <div class="split-people">
+                        <button class="split-people-btn" id="decreasePeople">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <div class="split-people-count" id="peopleCount">2</div>
+                        <button class="split-people-btn" id="increasePeople">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <button class="join-btn" id="calculateSplit">Calculate</button>
+            </div>
+            
+            <div class="split-result" id="splitResult">
+                <div class="split-result-text">Each person should pay:</div>
+                <div class="split-result-amount" id="splitAmountPerPerson">₹0</div>
+            </div>
+            
+            <button class="split-close" id="splitClose">Close</button>
         </div>
     </div>
 
@@ -3079,6 +3591,51 @@
         </div>
     </section>
 
+    <!-- Features Section - Redesigned -->
+    <section class="features-section" id="features">
+        <div class="features-container">
+            <h2 class="features-title">Travel Smarter with Our Features</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-robot feature-icon"></i>
+                    </div>
+                    <h3 class="feature-name">AI Travel Planner</h3>
+                    <p class="feature-description">Get personalized travel plans powered by artificial intelligence</p>
+                    <button class="feature-btn">Try Now</button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-money-bill-wave feature-icon"></i>
+                    </div>
+                    <h3 class="feature-name">Split Expenses</h3>
+                    <p class="feature-description">Easily split travel costs with your travel companions</p>
+                    <button class="feature-btn" id="splitMoneyBtn">Split Now</button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-ticket-alt feature-icon"></i>
+                    </div>
+                    <h3 class="feature-name">Book Your Trip</h3>
+                    <p class="feature-description">Find and book the best hotels, flights, and activities</p>
+                    <button class="feature-btn">Book Now</button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-share-alt feature-icon"></i>
+                    </div>
+                    <h3 class="feature-name">Share & Collaborate</h3>
+                    <p class="feature-description">Plan trips together with friends and family</p>
+                    <button class="feature-btn">Share</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Book Activities Section -->
     <section class="section activities" id="activities">
         <div class="container">
@@ -3161,6 +3718,66 @@
                                 <span>2 Days</span>
                             </div>
                             <button class="activity-btn book-now-btn">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Find answers to common questions about Bot-Voyage</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How does Bot-Voyage work?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Bot-Voyage uses artificial intelligence to create personalized travel plans based on your preferences. Simply tell us where you want to go and what you're interested in, and our AI will generate a complete itinerary for you.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is Bot-Voyage free to use?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes, Bot-Voyage is completely free to use for basic travel planning. We also offer premium features for a small fee, such as real-time updates and exclusive deals.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I collaborate with friends on a trip?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Absolutely! Bot-Voyage allows you to create a shared trip with friends and family. You can collaborate on the itinerary, split expenses, and make decisions together.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How accurate are the travel recommendations?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Our AI analyzes thousands of data points including user reviews, current events, weather conditions, and crowd levels to provide the most accurate and up-to-date recommendations possible.
                         </div>
                     </div>
                 </div>
@@ -3286,6 +3903,18 @@
         const joinCodeInput = document.getElementById('joinCodeInput');
         const joinBtn = document.getElementById('joinBtn');
 
+        // Split Money Modal Elements
+        const splitMoneyBtn = document.getElementById('splitMoneyBtn');
+        const splitModal = document.getElementById('splitModal');
+        const splitClose = document.getElementById('splitClose');
+        const splitAmount = document.getElementById('splitAmount');
+        const peopleCount = document.getElementById('peopleCount');
+        const decreasePeople = document.getElementById('decreasePeople');
+        const increasePeople = document.getElementById('increasePeople');
+        const calculateSplit = document.getElementById('calculateSplit');
+        const splitResult = document.getElementById('splitResult');
+        const splitAmountPerPerson = document.getElementById('splitAmountPerPerson');
+
         // Weather Elements
         const weatherWidget = document.getElementById('weatherWidget');
         const weatherIcon = document.getElementById('weatherIcon');
@@ -3308,6 +3937,9 @@
         const reelsContainer = document.getElementById('reelsContainer');
         const hotelsContainer = document.getElementById('hotelsContainer');
         const errorMessage = document.getElementById('errorMessage');
+
+        // FAQ Elements
+        const faqItems = document.querySelectorAll('.faq-item');
 
         // Map variable
         let map;
@@ -3493,7 +4125,9 @@
                 searchResults.classList.remove('active');
                 heroSection.style.display = 'flex';
                 document.getElementById('gems').style.display = 'block';
+                document.getElementById('features').style.display = 'block';
                 document.getElementById('activities').style.display = 'block';
+                document.getElementById('faq').style.display = 'block';
                 document.querySelector('footer').style.display = 'block';
                 
                 // Destroy map to free resources
@@ -3649,6 +4283,67 @@
                     joinCodeInput.style.borderColor = 'rgba(255, 255, 255, 0.1)';
                 }, 2000);
             }
+        });
+
+        // Split Money Feature Functionality
+        splitMoneyBtn.addEventListener('click', () => {
+            splitModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        splitClose.addEventListener('click', () => {
+            splitModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        splitModal.addEventListener('click', (e) => {
+            if (e.target === splitModal) {
+                splitModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // People count functionality
+        decreasePeople.addEventListener('click', () => {
+            let count = parseInt(peopleCount.textContent);
+            if (count > 1) {
+                count--;
+                peopleCount.textContent = count;
+            }
+        });
+
+        increasePeople.addEventListener('click', () => {
+            let count = parseInt(peopleCount.textContent);
+            count++;
+            peopleCount.textContent = count;
+        });
+
+        // Calculate split functionality
+        calculateSplit.addEventListener('click', () => {
+            const amount = parseFloat(splitAmount.value);
+            const count = parseInt(peopleCount.textContent);
+            
+            if (!isNaN(amount) && amount > 0 && count > 0) {
+                const amountPerPerson = amount / count;
+                splitAmountPerPerson.textContent = `₹${amountPerPerson.toFixed(2)}`;
+                splitResult.classList.add('show');
+            } else {
+                // Show error feedback
+                splitAmount.style.borderColor = 'var(--danger)';
+                setTimeout(() => {
+                    splitAmount.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                }, 2000);
+            }
+        });
+
+        // FAQ Functionality
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Toggle active class
+                item.classList.toggle('active');
+            });
         });
 
         // Function to update the search results page with generated content
@@ -3973,7 +4668,9 @@
                         // Show search results page
                         heroSection.style.display = 'none';
                         document.getElementById('gems').style.display = 'none';
+                        document.getElementById('features').style.display = 'none';
                         document.getElementById('activities').style.display = 'none';
+                        document.getElementById('faq').style.display = 'none';
                         document.querySelector('footer').style.display = 'none';
                         searchResults.classList.add('active');
                         
@@ -4027,7 +4724,9 @@
             searchResults.classList.remove('active');
             heroSection.style.display = 'flex';
             document.getElementById('gems').style.display = 'block';
+            document.getElementById('features').style.display = 'block';
             document.getElementById('activities').style.display = 'block';
+            document.getElementById('faq').style.display = 'block';
             document.querySelector('footer').style.display = 'block';
             
             // Destroy map to free resources
@@ -4143,7 +4842,7 @@
         }
 
         // Function to fetch weather data
-        async function fetchWeatherData(city = 'Mumbai') {
+        async function fetchWeatherData(city = 'Delhi') {
             try {
                 // Try to get real weather data
                 const apiKey = 'YOUR_OPENWEATHERMAP_API_KEY'; // Replace with your API key
@@ -4180,8 +4879,8 @@
                 mobileWeatherIcon.className = 'fas fa-sun weather-icon';
                 weatherTemp.textContent = '28°C';
                 mobileWeatherTemp.textContent = '28°C';
-                weatherLocation.textContent = 'Mumbai';
-                mobileWeatherLocation.textContent = 'Mumbai';
+                weatherLocation.textContent = 'Delhi';
+                mobileWeatherLocation.textContent = 'Delhi';
             }
         }
 
@@ -4225,7 +4924,7 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.gem-card, .activity-card, .reel-card, .hotel-card').forEach(el => {
+        document.querySelectorAll('.gem-card, .activity-card, .reel-card, .hotel-card, .feature-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
