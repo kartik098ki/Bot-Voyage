@@ -2825,14 +2825,16 @@
                 font-size: 0.9rem;
             }
 
+            /* Enhanced Mobile Horizontal Scrolling Sections */
             .gems-grid,
             .activities-grid {
                 display: flex;
                 overflow-x: auto;
-                gap: 1.5rem;
+                gap: 1.2rem;
                 padding-bottom: 1rem;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
+                scroll-snap-type: x mandatory;
             }
 
             .gems-grid::-webkit-scrollbar,
@@ -2844,11 +2846,33 @@
             .activity-card {
                 flex: 0 0 auto;
                 width: 280px;
+                scroll-snap-align: start;
+                border-radius: 20px;
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+                border: 1px solid rgba(255, 255, 255, 0.15);
             }
 
             .gem-img,
             .activity-img {
-                height: 160px;
+                height: 180px;
+                border-radius: 20px 20px 0 0;
+            }
+
+            .gem-content,
+            .activity-content {
+                padding: 1.2rem;
+            }
+
+            .gem-title,
+            .activity-title {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .gem-description,
+            .activity-description {
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
             }
 
             .activity-tabs {
@@ -2888,6 +2912,7 @@
 
             .footer-box {
                 padding: 1.5rem;
+                border-radius: 15px;
             }
 
             .footer-content {
@@ -2912,10 +2937,14 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 1rem;
+                padding-top: 1rem;
+                font-size: 0.8rem;
             }
 
             .footer-legal {
                 justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
             }
 
             .results-header {
@@ -3050,43 +3079,66 @@
                 padding: 0.8rem;
             }
 
+            /* Enhanced Features Section for Mobile */
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
+                gap: 1rem;
             }
 
             .feature-card {
-                padding: 1.5rem;
-                min-height: 250px;
-                border: 1px solid rgba(255, 255, 255, 0.15);
-                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+                padding: 1.2rem;
+                min-height: 200px;
+                border-radius: 16px;
+                background: rgba(30, 41, 59, 0.8);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.4);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .feature-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background: linear-gradient(90deg, var(--primary), var(--secondary));
+                transform: scaleX(0);
+                transition: transform 0.4s ease;
+            }
+
+            .feature-card:hover::before {
+                transform: scaleX(1);
             }
 
             .feature-icon-wrapper {
-                width: 60px;
-                height: 60px;
-                margin-bottom: 1rem;
+                width: 50px;
+                height: 50px;
+                margin-bottom: 0.8rem;
                 background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
-                box-shadow: 0 8px 15px -5px rgba(99, 102, 241, 0.4);
+                box-shadow: 0 5px 15px -5px rgba(99, 102, 241, 0.4);
             }
 
             .feature-icon {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
 
             .feature-name {
-                font-size: 1.1rem;
-                margin-bottom: 0.5rem;
+                font-size: 0.95rem;
+                margin-bottom: 0.4rem;
             }
 
             .feature-description {
-                font-size: 0.85rem;
-                margin-bottom: 1rem;
+                font-size: 0.75rem;
+                margin-bottom: 0.8rem;
+                line-height: 1.4;
             }
 
             .feature-btn {
-                font-size: 0.8rem;
-                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+                padding: 0.4rem 0.8rem;
+                border-radius: 20px;
             }
 
             .split-actions {
@@ -3187,11 +3239,12 @@
 
             .features-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
+                gap: 0.8rem;
             }
 
             .footer-box {
                 padding: 1rem;
+                border-radius: 12px;
             }
 
             .footer-content {
@@ -3199,11 +3252,12 @@
             }
 
             .footer-column {
-                margin-bottom: 1.5rem;
+                margin-bottom: 1rem;
             }
 
             .footer-column h3 {
                 margin-bottom: 0.8rem;
+                font-size: 0.9rem;
             }
 
             .footer-links li {
@@ -3219,7 +3273,7 @@
             }
 
             .footer-bottom {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -3411,12 +3465,12 @@
             <div class="particle" style="top: 50%; left: 30%; width: 5px; height: 5px; animation-delay: 6s;"></div>
             <div class="particle" style="top: 80%; left: 60%; width: 6px; height: 6px; animation-delay: 7s;"></div>
             
-            <!-- Additional floating elements for visual effect -->
-            <div class="floating-element" style="top: 15%; left: 20%; width: 30px; height: 30px; opacity: 0.15; animation: float 20s infinite ease-in-out;"></div>
-            <div class="floating-element" style="top: 25%; right: 25%; width: 20px; height: 20px; opacity: 0.2; animation: float 15s infinite ease-in-out;"></div>
-            <div class="floating-element" style="top: 65%; left: 15%; width: 25px; height: 25px; opacity: 0.1; animation: float 18s infinite ease-in-out;"></div>
-            <div class="floating-element" style="top: 45%; right: 15%; width: 35px; height: 35px; opacity: 0.15; animation: float 22s infinite ease-in-out;"></div>
-            <div class="floating-element" style="top: 75%; left: 75%; width: 15px; height: 15px; opacity: 0.25; animation: float 12s infinite ease-in-out;"></div>
+            <!-- Abstract Floating Elements -->
+            <div class="abstract-shape shape-1"></div>
+            <div class="abstract-shape shape-2"></div>
+            <div class="abstract-shape shape-3"></div>
+            <div class="abstract-shape shape-4"></div>
+            <div class="abstract-shape shape-5"></div>
         </div>
         
         <div class="hero-content">
@@ -3870,7 +3924,7 @@
                         </div>
                         Bot-Voyage
                     </div>
-                    <p>Your intelligent travel companion for exploring the incredible India. Discover hidden gems, book unique experiences, and create unforgettable memories.</p>
+                    <p>Your intelligent travel companion for exploring the incredible India.</p>
                     <div class="social-links">
                         <a href="#" class="social-link">
                             <i class="fab fa-facebook-f"></i>
@@ -3894,7 +3948,6 @@
                         <li><a href="#">Voice Commands</a></li>
                         <li><a href="#">Live Updates</a></li>
                         <li><a href="#">Personalized Plans</a></li>
-                        <li><a href="#">Real-time Crowd Data</a></li>
                     </ul>
                 </div>
                 
@@ -3904,7 +3957,6 @@
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Careers</a></li>
                         <li><a href="#">Blog</a></li>
-                        <li><a href="#">Press</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
@@ -3915,21 +3967,17 @@
                         <li><a href="#">Help Center</a></li>
                         <li><a href="#">Safety Information</a></li>
                         <li><a href="#">Cancellation Options</a></li>
-                        <li><a href="#">Travel Insurance</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <div class="footer-copyright">
-                    &copy; 2025 Bot-Voyage Technologies Pvt. Ltd. All rights reserved.
+                    &copy; 2025 Bot-Voyage Technologies Pvt. Ltd.
                 </div>
                 <div class="footer-legal">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                    <a href="#">Accessibility</a>
-                    <a href="#">Sitemap</a>
                 </div>
             </div>
         </div>
@@ -5056,33 +5104,85 @@
             }
         });
 
-        // Add floating animation for the new floating elements
+        // Add floating animation for the new abstract shapes
         const style = document.createElement('style');
         style.textContent = `
-            @keyframes float {
+            @keyframes float-shape {
                 0% {
                     transform: translateY(0) translateX(0) rotate(0deg);
                 }
                 25% {
-                    transform: translateY(-20px) translateX(10px) rotate(5deg);
+                    transform: translateY(-20px) translateX(15px) rotate(5deg);
                 }
                 50% {
                     transform: translateY(-40px) translateX(0) rotate(0deg);
                 }
                 75% {
-                    transform: translateY(-20px) translateX(-10px) rotate(-5deg);
+                    transform: translateY(-20px) translateX(-15px) rotate(-5deg);
                 }
                 100% {
                     transform: translateY(0) translateX(0) rotate(0deg);
                 }
             }
             
-            .floating-element {
+            .abstract-shape {
                 position: absolute;
-                background: rgba(255, 255, 255, 0.1);
-                border-radius: 50%;
+                opacity: 0.1;
                 pointer-events: none;
-                animation: float 20s infinite ease-in-out;
+            }
+            
+            .shape-1 {
+                top: 15%;
+                left: 10%;
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(135deg, var(--primary), var(--secondary));
+                clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                animation: float-shape 20s infinite ease-in-out;
+            }
+            
+            .shape-2 {
+                top: 25%;
+                right: 15%;
+                width: 40px;
+                height: 40px;
+                background: linear-gradient(135deg, var(--accent), var(--primary));
+                clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                animation: float-shape 18s infinite ease-in-out;
+                animation-delay: 1s;
+            }
+            
+            .shape-3 {
+                top: 60%;
+                left: 8%;
+                width: 50px;
+                height: 50px;
+                background: linear-gradient(135deg, var(--secondary), var(--accent));
+                clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+                animation: float-shape 22s infinite ease-in-out;
+                animation-delay: 2s;
+            }
+            
+            .shape-4 {
+                top: 40%;
+                right: 8%;
+                width: 70px;
+                height: 30px;
+                background: linear-gradient(135deg, var(--primary), var(--accent));
+                clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+                animation: float-shape 25s infinite ease-in-out;
+                animation-delay: 3s;
+            }
+            
+            .shape-5 {
+                top: 70%;
+                left: 70%;
+                width: 35px;
+                height: 35px;
+                background: linear-gradient(135deg, var(--secondary), var(--primary));
+                clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+                animation: float-shape 19s infinite ease-in-out;
+                animation-delay: 4s;
             }
         `;
         document.head.appendChild(style);
