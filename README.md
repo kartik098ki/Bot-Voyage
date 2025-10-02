@@ -34,7 +34,7 @@ Upcoming integrations:
 - **Backend** – Node.js / Express  
 - **Database** – MongoDB / Firebase (Booking integration in progress)  
 - **AI & APIs** – OpenAI, Google Maps, Amadeus, Vision APIs  
-
+- **Offline Support** – PWA + Local Storage + Service Workers
 ---
 
 ## 👥 Team Roles  
