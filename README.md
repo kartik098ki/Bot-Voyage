@@ -6,21 +6,26 @@ It’s designed for hackathons, projects, and real-world use cases where AI + tr
 ---
 
 ## ✨ Features (Prototype Ready ✅)  
-- 🗺️ **Smart Travel Planning** – Personalized itineraries based on preferences.  
-- 🚖 **Rental Assistance** – Compare transport, rentals, and rides.  
-- 🍽️ **Local Experiences** – Discover cafés, adventures, and hidden gems.  
-- 🎬 **Reels-style Content** – Show travel ideas and experiences in a fun, short-video format.  
-- 🔑 **Login System** – Ready with authentication page.  
-- 🏨 **Booking Database (Upcoming)** – Will integrate to manage travel bookings seamlessly.  
+Our prototype is **fully functional** with AI-powered modules already live 🚀:  
+
+- 🧑‍🤝‍🧑 **Plan with Friends** – Collaboratively plan trips with friends in real-time.  
+- 🤖 **AI Travel Planner** – Get smart, personalized itineraries and trip suggestions.  
+- 🌍 **Your Travel Space** – A dedicated hub to manage all your trips, notes, and saved spots.  
+- 👁️ **AI Vision** – Upload images (landmarks, food, places) and let AI recognize & recommend nearby experiences.  
+- 🎬 **Reels-style Content** – Explore destinations and activities through engaging short video-style content.  
+
+Upcoming integrations:  
+- 🔑 **Login System** – Authentication for secure access.  
+- 🏨 **Booking Database** – Real-time booking and reservation system.  
 
 ---
 
 ## 🚀 Current Status  
-✅ Prototype is ready.  
+✅ Prototype is ready with **AI features fully functional**.  
 ⚙️ Next steps:  
-1. Integrate our **AI engine** for personalized recommendations.  
-2. Connect the **booking database** for real-time reservations.  
-3. Finalize **UI/UX with reels and login integration**.  
+1. Expand **AI engine** for more personalization.  
+2. Integrate **booking database** for live reservations.  
+3. Complete **UI/UX polish with reels + login integration**.  
 
 ---
 
@@ -28,29 +33,21 @@ It’s designed for hackathons, projects, and real-world use cases where AI + tr
 - **Frontend** – React / Next.js  
 - **Backend** – Node.js / Express  
 - **Database** – MongoDB / Firebase (Booking integration in progress)  
-- **AI & APIs** – OpenAI, Google Maps, Amadeus, etc.  
+- **AI & APIs** – OpenAI, Google Maps, Amadeus, Vision APIs  
 
 ---
 
 ## 👥 Team Roles  
-- **Kartik** – Team Leader & Full Stack Developer  
-- **Harshit** – Backend & API Integration  
-- **Shaurya** – Frontend & UI/UX  
-- **Avni** – Research & Content  
+- **Kartik** — Team Leader, Full Stack Developer & Pitch Presenter  
+- **Harshit** — Backend Developer (APIs & Database)  
+- **Shaurya** — Frontend Developer (UI Integration)  
+- **Avni** — UI/UX Designer & Presentation Lead  
 
 ---
 
 ## 📌 Project Goals  
-- Deliver an **AI + Travel Prototype** for hackathons and real-world scaling.  
-- Add **booking + reels + personalization** in the next phase.  
-- Grow into a **full travel-tech ecosystem** under Bot-Voyage.  
+- Deliver a **powerful AI + Travel Prototype** for hackathons and real-world scaling.  
+- Integrate **seamless booking + login + personalization**.  
+- Build a **travel-tech ecosystem** with Bot-Voyage at the core.  
 
----
 
-## 📸 Screenshots (Optional)  
-_Add your UI designs, hackathon snaps, or app demo images here._  
-
----
-
-## 📜 License  
-This project is licensed under the MIT License – feel free to use and modify!  
