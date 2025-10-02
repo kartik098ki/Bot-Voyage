@@ -885,7 +885,7 @@ function updateSearchResults(data, destination) {
     data.experienceReels.forEach((reel, index) => {
         const reelCard = document.createElement('div');
         reelCard.className = 'reel-card';
-        reelCard.setAttribute('data-video', 'https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4');
+        reelCard.setAttribute('data-video', 'https://www.instagram.com/reel/DOtflh4E8IY/');
         reelCard.setAttribute('data-title', reel.title);
         reelCard.setAttribute('data-description', reel.description);
         
