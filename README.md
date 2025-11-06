@@ -1,6 +1,6 @@
-# 🤖 Bot-Voyage  
+# 🤖 ADVATRIP
 
-Bot-Voyage is an AI-powered travel companion that helps users plan, explore, and experience journeys smarter.  
+ADVATRIP is an AI-powered travel companion that helps users plan, explore, and experience journeys smarter.  
 It’s designed for hackathons, projects, and real-world use cases where AI + travel innovation meets!  
 
 ---
