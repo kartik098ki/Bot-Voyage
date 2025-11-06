@@ -153,14 +153,14 @@ const SAMPLE_DATA = {
             { name: "Netravali Wildlife Sanctuary", description: "Lesser-known sanctuary with diverse flora", crowdLevel: "Low" }
         ],
         experienceReels: [
-            { title: "Goan Beaches", description: "Experience the pristine beaches of Goa" },
-            { title: "Goan Carnival", description: "Experience the vibrant Goan carnival" },
-            { title: "Goan Cuisine", description: "Taste the authentic flavors of Goa" }
+            { title: "Goan Beaches", description: "Experience the pristine beaches of Goa", videoUrl: "https://www.youtube.com/embed/your-video-id-1" },
+            { title: "Goan Carnival", description: "Experience the vibrant Goan carnival", videoUrl: "https://www.youtube.com/embed/your-video-id-2" },
+            { title: "Goan Cuisine", description: "Taste the authentic flavors of Goa", videoUrl: "https://www.youtube.com/embed/your-video-id-3" }
         ],
         hotels: [
-            { name: "Taj Exotica Resort & Spa", description: "Luxury beachfront resort with private beach access", rating: 4.8, price: 15000 },
-            { name: "The Leela Goa", description: "5-star resort with lagoon-style pools", rating: 4.7, price: 12000 },
-            { name: "Ahilya by the Sea", description: "Boutique hotel with Mediterranean architecture", rating: 4.9, price: 9000 }
+            { name: "Taj Exotica Resort & Spa", description: "Luxury beachfront resort with private beach access", rating: 4.8, price: 15000, bookingUrl: "https://www.tajhotels.com/en-in/taj-exotica-goa/" },
+            { name: "The Leela Goa", description: "5-star resort with lagoon-style pools", rating: 4.7, price: 12000, bookingUrl: "https://www.theleela.com/en-in/goa/" },
+            { name: "Ahilya by the Sea", description: "Boutique hotel with Mediterranean architecture", rating: 4.9, price: 9000, bookingUrl: "https://www.ahilyabythesea.com/" }
         ]
     },
     'rajasthan': {
@@ -200,14 +200,14 @@ const SAMPLE_DATA = {
             { name: "Ranakpur Jain Temple", description: "Stunning marble temple with intricate architecture", crowdLevel: "Medium" }
         ],
         experienceReels: [
-            { title: "Rajasthan Forts", description: "Explore the majestic forts of Rajasthan" },
-            { title: "Rajasthani Folk Dance", description: "Experience the vibrant folk dances" },
-            { title: "Desert Safari", description: "Experience the Thar Desert on camelback" }
+            { title: "Rajasthan Forts", description: "Explore the majestic forts of Rajasthan", videoUrl: "https://www.youtube.com/embed/your-video-id-4" },
+            { title: "Rajasthani Folk Dance", description: "Experience the vibrant folk dances", videoUrl: "https://www.youtube.com/embed/your-video-id-5" },
+            { title: "Desert Safari", description: "Experience the Thar Desert on camelback", videoUrl: "https://www.youtube.com/embed/your-video-id-6" }
         ],
         hotels: [
-            { name: "Taj Lake Palace, Udaipur", description: "Luxury hotel in the middle of Lake Pichola", rating: 4.9, price: 25000 },
-            { name: "Rambagh Palace, Jaipur", description: "Former royal residence turned luxury hotel", rating: 4.8, price: 20000 },
-            { name: "Umaid Bhawan Palace, Jodhpur", description: "One of the world's largest private residences", rating: 4.7, price: 18000 }
+            { name: "Taj Lake Palace, Udaipur", description: "Luxury hotel in the middle of Lake Pichola", rating: 4.9, price: 25000, bookingUrl: "https://www.tajhotels.com/en-in/taj-lake-palace-udaipur/" },
+            { name: "Rambagh Palace, Jaipur", description: "Former royal residence turned luxury hotel", rating: 4.8, price: 20000, bookingUrl: "https://www.tajhotels.com/en-in/rambagh-palace-jaipur/" },
+            { name: "Umaid Bhawan Palace, Jodhpur", description: "One of the world's largest private residences", rating: 4.7, price: 18000, bookingUrl: "https://www.tajhotels.com/en-in/umaid-bhawan-palace-jodhpur/" }
         ]
     },
     'mumbai': {
@@ -247,14 +247,14 @@ const SAMPLE_DATA = {
             { name: "Versova Beach", description: "Less crowded beach with fishing village", crowdLevel: "Medium" }
         ],
         experienceReels: [
-            { title: "Mumbai Street Food", description: "Taste the best street food in Mumbai" },
-            { title: "Mumbai Local Trains", description: "Experience the lifeline of Mumbai" },
-            { title: "Mumbai Monsoon", description: "Experience the magical Mumbai monsoon" }
+            { title: "Mumbai Street Food", description: "Taste the best street food in Mumbai", videoUrl: "https://www.youtube.com/embed/your-video-id-7" },
+            { title: "Mumbai Local Trains", description: "Experience the lifeline of Mumbai", videoUrl: "https://www.youtube.com/embed/your-video-id-8" },
+            { title: "Mumbai Monsoon", description: "Experience the magical Mumbai monsoon", videoUrl: "https://www.youtube.com/embed/your-video-id-9" }
         ],
         hotels: [
-            { name: "Taj Mahal Palace, Mumbai", description: "Iconic luxury hotel overlooking the Arabian Sea", rating: 4.8, price: 18000 },
-            { name: "The Oberoi, Mumbai", description: "Luxury hotel with stunning sea views", rating: 4.7, price: 16000 },
-            { name: "Trident, Nariman Point", description: "5-star hotel in the business district", rating: 4.6, price: 12000 }
+            { name: "Taj Mahal Palace, Mumbai", description: "Iconic luxury hotel overlooking the Arabian Sea", rating: 4.8, price: 18000, bookingUrl: "https://www.tajhotels.com/en-in/taj-mahal-palace-mumbai/" },
+            { name: "The Oberoi, Mumbai", description: "Luxury hotel with stunning sea views", rating: 4.7, price: 16000, bookingUrl: "https://www.oberoihotels.com/hotels-in-mumbai/" },
+            { name: "Trident, Nariman Point", description: "5-star hotel in the business district", rating: 4.6, price: 12000, bookingUrl: "https://www.tridenthotels.com/mumbai-nariman-point/" }
         ]
     }
 };
@@ -360,6 +360,8 @@ document.addEventListener('click', (e) => {
 videoClose.addEventListener('click', () => {
     videoModal.classList.remove('active');
     document.body.style.overflow = 'auto';
+    videoPlayer.pause();
+    videoPlayer.currentTime = 0;
 });
 
 // Close modal when clicking outside
@@ -381,7 +383,7 @@ collabBtn.addEventListener('click', () => {
     // Generate QR code
     document.getElementById('qrcode').innerHTML = '';
     new QRCode(document.getElementById('qrcode'), {
-        text: `https://bot-voyage.com/collab/${code}`,
+        text: `https://advatrip.com/collab/${code}`,
         width: 128,
         height: 128,
         colorDark: "#000000",
@@ -865,6 +867,7 @@ function updateSearchResults(data, destination) {
         const gemBtn = document.createElement('button');
         gemBtn.className = 'gem-btn';
         gemBtn.textContent = 'Explore';
+        gemBtn.setAttribute('data-gem', gem.name.replace(/\s+/g, '-').toLowerCase());
         
         gemFooter.appendChild(gemLocation);
         gemFooter.appendChild(gemBtn);
@@ -885,7 +888,7 @@ function updateSearchResults(data, destination) {
     data.experienceReels.forEach((reel, index) => {
         const reelCard = document.createElement('div');
         reelCard.className = 'reel-card';
-        reelCard.setAttribute('data-video', 'https://www.instagram.com/reel/DOtflh4E8IY/');
+        reelCard.setAttribute('data-video', reel.videoUrl);
         reelCard.setAttribute('data-title', reel.title);
         reelCard.setAttribute('data-description', reel.description);
         
@@ -965,6 +968,8 @@ function updateSearchResults(data, destination) {
         const hotelBtn = document.createElement('button');
         hotelBtn.className = 'hotel-btn book-now-btn';
         hotelBtn.textContent = 'Book Now';
+        hotelBtn.setAttribute('data-hotel', hotel.name.replace(/\s+/g, '-').toLowerCase());
+        hotelBtn.setAttribute('data-booking-url', hotel.bookingUrl);
         
         hotelFooter.appendChild(hotelPrice);
         hotelFooter.appendChild(hotelBtn);
@@ -1050,14 +1055,14 @@ async function sendMessage() {
                     { name: "Local Market", description: "Authentic market experience", crowdLevel: "High" }
                 ],
                 experienceReels: [
-                    { title: "Local Culture", description: "Experience the local way of life" },
-                    { title: "Natural Beauty", description: "Discover the natural wonders" },
-                    { title: "Local Cuisine", description: "Taste the authentic flavors" }
+                    { title: "Local Culture", description: "Experience the local way of life", videoUrl: "https://www.youtube.com/embed/your-video-id-10" },
+                    { title: "Natural Beauty", description: "Discover the natural wonders", videoUrl: "https://www.youtube.com/embed/your-video-id-11" },
+                    { title: "Local Cuisine", description: "Taste the authentic flavors", videoUrl: "https://www.youtube.com/embed/your-video-id-12" }
                 ],
                 hotels: [
-                    { name: "Luxury Resort", description: "Premium accommodation with all amenities", rating: 4.8, price: 15000 },
-                    { name: "Boutique Hotel", description: "Charming hotel with personalized service", rating: 4.6, price: 8000 },
-                    { name: "Budget Stay", description: "Comfortable accommodation at great value", rating: 4.2, price: 4000 }
+                    { name: "Luxury Resort", description: "Premium accommodation with all amenities", rating: 4.8, price: 15000, bookingUrl: "#" },
+                    { name: "Boutique Hotel", description: "Charming hotel with personalized service", rating: 4.6, price: 8000, bookingUrl: "#" },
+                    { name: "Budget Stay", description: "Comfortable accommodation at great value", rating: 4.2, price: 4000, bookingUrl: "#" }
                 ]
             };
             
@@ -1148,11 +1153,86 @@ activityTabs.forEach(tab => {
 // Gem buttons functionality
 gemBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        const action = btn.textContent.toLowerCase();
-        // In a real app, this would navigate to the gem details
-        console.log(`${action} clicked`);
+        const gemId = btn.getAttribute('data-gem');
+        if (gemId) {
+            // Show gem details modal
+            showGemDetails(gemId);
+        }
     });
 });
+
+// Function to show gem details
+function showGemDetails(gemId) {
+    // Create a modal for gem details
+    const gemModal = document.createElement('div');
+    gemModal.className = 'gem-modal';
+    gemModal.innerHTML = `
+        <div class="gem-modal-content">
+            <button class="gem-modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="gem-modal-title">Hidden Gem Details</h3>
+            <div class="gem-modal-body">
+                <p>This is a hidden gem that offers unique experiences away from the crowds. Perfect for travelers looking for authentic and off-the-beaten-path adventures.</p>
+                <div class="gem-modal-info">
+                    <div class="gem-modal-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Location: Hidden Paradise</span>
+                    </div>
+                    <div class="gem-modal-info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Best time to visit: Early morning or late afternoon</span>
+                    </div>
+                    <div class="gem-modal-info-item">
+                        <i class="fas fa-users"></i>
+                        <span>Crowd level: Low</span>
+                    </div>
+                </div>
+                <div class="gem-modal-actions">
+                    <button class="gem-modal-btn primary">Add to Trip</button>
+                    <button class="gem-modal-btn secondary">Get Directions</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(gemModal);
+    
+    // Show modal with animation
+    setTimeout(() => {
+        gemModal.classList.add('active');
+    }, 10);
+    
+    // Close modal functionality
+    const closeBtn = gemModal.querySelector('.gem-modal-close');
+    closeBtn.addEventListener('click', () => {
+        gemModal.classList.remove('active');
+        setTimeout(() => {
+            document.body.removeChild(gemModal);
+        }, 300);
+    });
+    
+    // Add to trip functionality
+    const addBtn = gemModal.querySelector('.gem-modal-btn.primary');
+    addBtn.addEventListener('click', () => {
+        // Show success message
+        addBtn.textContent = 'Added!';
+        addBtn.classList.add('success');
+        setTimeout(() => {
+            gemModal.classList.remove('active');
+            setTimeout(() => {
+                document.body.removeChild(gemModal);
+            }, 300);
+        }, 1000);
+    });
+    
+    // Get directions functionality
+    const directionsBtn = gemModal.querySelector('.gem-modal-btn.secondary');
+    directionsBtn.addEventListener('click', () => {
+        // In a real app, this would open maps with directions
+        alert('Opening directions to this hidden gem...');
+    });
+}
 
 // Voice button functionality (simulated)
 voiceBtns.forEach(btn => {
@@ -1210,15 +1290,46 @@ function initializeMap(destination) {
     // Initialize the map
     map = L.map('map').setView(coords, 10);
     
-    // Add tile layer
+    // Add tile layer with better styling
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 18
     }).addTo(map);
     
+    // Add a custom icon for the marker
+    const customIcon = L.divIcon({
+        html: '<div style="background-color: var(--primary); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);"><i class="fas fa-map-marker-alt"></i></div>',
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30],
+        className: 'custom-div-icon'
+    });
+    
     // Add a marker for the destination
-    L.marker(coords).addTo(map)
+    L.marker(coords, { icon: customIcon }).addTo(map)
         .bindPopup(`<b>${destinationName}</b><br>Your travel destination`)
         .openPopup();
+    
+    // Add additional markers for points of interest
+    if (destKey === 'goa') {
+        L.marker([15.4909, 73.8278], { icon: customIcon }).addTo(map)
+            .bindPopup('<b>Panaji</b><br>Capital of Goa');
+        
+        L.marker([15.2993, 74.1240], { icon: customIcon }).addTo(map)
+            .bindPopup('<b>South Goa</b><br>Beautiful beaches');
+    } else if (destKey === 'rajasthan') {
+        L.marker([26.9124, 75.7873], { icon: customIcon }).addTo(map)
+            .bindPopup('<b>Jaipur</b><br>Pink City');
+        
+        L.marker([26.2389, 73.0243], { icon: customIcon }).addTo(map)
+            .bindPopup('<b>Udaipur</b><br>City of Lakes');
+    } else if (destKey === 'mumbai') {
+        L.marker([19.0760, 72.8777], { icon: customIcon }).addTo(map)
+            .bindPopup('<b>Mumbai</b><br>City of Dreams');
+        
+        L.marker([19.0822, 72.8812], { icon: customIcon }).addTo(map)
+            .bindPopup('<b>Marine Drive</b><br>Queen\'s Necklace');
+    }
 }
 
 // Function to update weather UI
@@ -1371,10 +1482,268 @@ document.addEventListener('click', (e) => {
         const activityCard = btn.closest('.activity-card');
         const activityName = activityCard.querySelector('.activity-title').textContent;
         
-        // In a real app, this would open a booking form
-        alert(`Booking: ${activityName}`);
+        // Show booking confirmation modal
+        showBookingModal(activityName);
     }
 });
+
+// Function to show booking modal
+function showBookingModal(activityName) {
+    const bookingModal = document.createElement('div');
+    bookingModal.className = 'booking-modal';
+    bookingModal.innerHTML = `
+        <div class="booking-modal-content">
+            <button class="booking-modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="booking-modal-title">Book Your Adventure</h3>
+            <div class="booking-modal-body">
+                <div class="booking-activity">
+                    <h4>${activityName}</h4>
+                    <p>Get ready for an unforgettable experience!</p>
+                </div>
+                <div class="booking-form">
+                    <div class="form-group">
+                        <label for="booking-date">Select Date</label>
+                        <input type="date" id="booking-date" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-guests">Number of Guests</label>
+                        <select id="booking-guests" class="form-input">
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5+ Guests</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-name">Full Name</label>
+                        <input type="text" id="booking-name" class="form-input" placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-email">Email</label>
+                        <input type="email" id="booking-email" class="form-input" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-phone">Phone Number</label>
+                        <input type="tel" id="booking-phone" class="form-input" placeholder="Enter your phone number">
+                    </div>
+                </div>
+                <div class="booking-modal-actions">
+                    <button class="booking-modal-btn secondary">Cancel</button>
+                    <button class="booking-modal-btn primary">Confirm Booking</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(bookingModal);
+    
+    // Show modal with animation
+    setTimeout(() => {
+        bookingModal.classList.add('active');
+    }, 10);
+    
+    // Close modal functionality
+    const closeBtn = bookingModal.querySelector('.booking-modal-close');
+    const cancelBtn = bookingModal.querySelector('.booking-modal-btn.secondary');
+    
+    const closeModal = () => {
+        bookingModal.classList.remove('active');
+        setTimeout(() => {
+            document.body.removeChild(bookingModal);
+        }, 300);
+    };
+    
+    closeBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
+    
+    // Confirm booking functionality
+    const confirmBtn = bookingModal.querySelector('.booking-modal-btn.primary');
+    confirmBtn.addEventListener('click', () => {
+        const date = document.getElementById('booking-date').value;
+        const guests = document.getElementById('booking-guests').value;
+        const name = document.getElementById('booking-name').value;
+        const email = document.getElementById('booking-email').value;
+        const phone = document.getElementById('booking-phone').value;
+        
+        if (date && name && email && phone) {
+            // Show success message
+            confirmBtn.textContent = 'Booking Confirmed!';
+            confirmBtn.classList.add('success');
+            
+            // In a real app, this would send the booking data to a server
+            setTimeout(() => {
+                closeModal();
+                // Show confirmation notification
+                showNotification('Booking confirmed! Check your email for details.');
+            }, 1500);
+        } else {
+            // Show error message
+            showNotification('Please fill in all required fields.', 'error');
+        }
+    });
+}
+
+// Function to show notification
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Show notification with animation
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+    
+    // Hide notification after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+// Hotel booking functionality
+document.addEventListener('click', (e) => {
+    if (e.target.closest('.hotel-btn.book-now-btn')) {
+        const btn = e.target.closest('.hotel-btn');
+        const hotelCard = btn.closest('.hotel-card');
+        const hotelName = hotelCard.querySelector('.hotel-title').textContent;
+        const bookingUrl = btn.getAttribute('data-booking-url');
+        
+        if (bookingUrl && bookingUrl !== '#') {
+            // Open booking URL in a new tab
+            window.open(bookingUrl, '_blank');
+        } else {
+            // Show hotel booking modal
+            showHotelBookingModal(hotelName);
+        }
+    }
+});
+
+// Function to show hotel booking modal
+function showHotelBookingModal(hotelName) {
+    const hotelBookingModal = document.createElement('div');
+    hotelBookingModal.className = 'hotel-booking-modal';
+    hotelBookingModal.innerHTML = `
+        <div class="hotel-booking-modal-content">
+            <button class="hotel-booking-modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="hotel-booking-modal-title">Book Your Stay</h3>
+            <div class="hotel-booking-modal-body">
+                <div class="hotel-booking-info">
+                    <h4>${hotelName}</h4>
+                    <p>Experience luxury and comfort during your trip.</p>
+                </div>
+                <div class="hotel-booking-form">
+                    <div class="form-group">
+                        <label for="hotel-checkin">Check-in Date</label>
+                        <input type="date" id="hotel-checkin" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="hotel-checkout">Check-out Date</label>
+                        <input type="date" id="hotel-checkout" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="hotel-rooms">Number of Rooms</label>
+                        <select id="hotel-rooms" class="form-input">
+                            <option value="1">1 Room</option>
+                            <option value="2">2 Rooms</option>
+                            <option value="3">3 Rooms</option>
+                            <option value="4">4+ Rooms</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="hotel-guests">Number of Guests</label>
+                        <select id="hotel-guests" class="form-input">
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5+ Guests</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="hotel-name">Full Name</label>
+                        <input type="text" id="hotel-name" class="form-input" placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="hotel-email">Email</label>
+                        <input type="email" id="hotel-email" class="form-input" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="hotel-phone">Phone Number</label>
+                        <input type="tel" id="hotel-phone" class="form-input" placeholder="Enter your phone number">
+                    </div>
+                </div>
+                <div class="hotel-booking-modal-actions">
+                    <button class="hotel-booking-modal-btn secondary">Cancel</button>
+                    <button class="hotel-booking-modal-btn primary">Confirm Booking</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(hotelBookingModal);
+    
+    // Show modal with animation
+    setTimeout(() => {
+        hotelBookingModal.classList.add('active');
+    }, 10);
+    
+    // Close modal functionality
+    const closeBtn = hotelBookingModal.querySelector('.hotel-booking-modal-close');
+    const cancelBtn = hotelBookingModal.querySelector('.hotel-booking-modal-btn.secondary');
+    
+    const closeModal = () => {
+        hotelBookingModal.classList.remove('active');
+        setTimeout(() => {
+            document.body.removeChild(hotelBookingModal);
+        }, 300);
+    };
+    
+    closeBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
+    
+    // Confirm booking functionality
+    const confirmBtn = hotelBookingModal.querySelector('.hotel-booking-modal-btn.primary');
+    confirmBtn.addEventListener('click', () => {
+        const checkin = document.getElementById('hotel-checkin').value;
+        const checkout = document.getElementById('hotel-checkout').value;
+        const rooms = document.getElementById('hotel-rooms').value;
+        const guests = document.getElementById('hotel-guests').value;
+        const name = document.getElementById('hotel-name').value;
+        const email = document.getElementById('hotel-email').value;
+        const phone = document.getElementById('hotel-phone').value;
+        
+        if (checkin && checkout && name && email && phone) {
+            // Show success message
+            confirmBtn.textContent = 'Booking Confirmed!';
+            confirmBtn.classList.add('success');
+            
+            // In a real app, this would send the booking data to a server
+            setTimeout(() => {
+                closeModal();
+                // Show confirmation notification
+                showNotification('Hotel booking confirmed! Check your email for details.');
+            }, 1500);
+        } else {
+            // Show error message
+            showNotification('Please fill in all required fields.', 'error');
+        }
+    });
+}
 
 // Confetti Effect Function
 function createConfetti() {
@@ -1442,3 +1811,279 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Add CSS for modals and notifications
+const additionalCSS = `
+/* Booking Modal */
+.booking-modal, .hotel-booking-modal, .gem-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.booking-modal.active, .hotel-booking-modal.active, .gem-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.booking-modal-content, .hotel-booking-modal-content, .gem-modal-content {
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(20px);
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.booking-modal.active .booking-modal-content,
+.hotel-booking-modal.active .hotel-booking-modal-content,
+.gem-modal.active .gem-modal-content {
+    transform: translateY(0);
+}
+
+.booking-modal-content::before,
+.hotel-booking-modal-content::before,
+.gem-modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    animation: shimmer 3s infinite;
+}
+
+.booking-modal-title, .hotel-booking-modal-title, .gem-modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--light);
+}
+
+.booking-modal-close, .hotel-booking-modal-close, .gem-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--gray);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.booking-modal-close:hover, .hotel-booking-modal-close:hover, .gem-modal-close:hover {
+    color: var(--light);
+}
+
+.booking-activity, .hotel-booking-info, .gem-modal-body {
+    margin-bottom: 1.5rem;
+}
+
+.booking-activity h4, .hotel-booking-info h4, .gem-modal-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.booking-form, .hotel-booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: var(--light);
+    font-weight: 500;
+}
+
+.form-input {
+    background: rgba(15, 23, 42, 0.8);
+    color: var(--light);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: var(--primary);
+}
+
+.booking-modal-actions, .hotel-booking-modal-actions, .gem-modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+.booking-modal-btn, .hotel-booking-modal-btn, .gem-modal-btn {
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+    border: none;
+}
+
+.booking-modal-btn.primary, .hotel-booking-modal-btn.primary, .gem-modal-btn.primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+}
+
+.booking-modal-btn.primary:hover, .hotel-booking-modal-btn.primary:hover, .gem-modal-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.booking-modal-btn.secondary, .hotel-booking-modal-btn.secondary, .gem-modal-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--light);
+}
+
+.booking-modal-btn.secondary:hover, .hotel-booking-modal-btn.secondary:hover, .gem-modal-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.booking-modal-btn.success, .hotel-booking-modal-btn.success, .gem-modal-btn.success {
+    background: var(--success);
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.5rem;
+    max-width: 300px;
+    transform: translateX(120%);
+    transition: transform 0.3s ease;
+    z-index: 6000;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    border-left: 4px solid var(--success);
+}
+
+.notification.error {
+    border-left: 4px solid var(--danger);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--light);
+}
+
+.notification i {
+    font-size: 1.2rem;
+}
+
+.notification.success i {
+    color: var(--success);
+}
+
+.notification.error i {
+    color: var(--danger);
+}
+
+/* Gem Modal Info */
+.gem-modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 1rem 0;
+}
+
+.gem-modal-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--light);
+}
+
+.gem-modal-info-item i {
+    color: var(--primary);
+    width: 20px;
+}
+
+/* Confetti */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    top: -10px;
+    z-index: 9999;
+    animation: confetti-fall linear forwards;
+}
+
+@keyframes confetti-fall {
+    to {
+        transform: translateY(calc(100vh + 20px)) rotate(360deg);
+    }
+}
+
+/* Custom Leaflet Marker */
+.custom-div-icon {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .booking-modal-content, .hotel-booking-modal-content, .gem-modal-content {
+        padding: 1.5rem;
+        width: 95%;
+    }
+    
+    .booking-modal-actions, .hotel-booking-modal-actions, .gem-modal-actions {
+        flex-direction: column;
+    }
+    
+    .notification {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}
+`;
+
+// Add the additional CSS to the page
+const style = document.createElement('style');
+style.textContent = additionalCSS;
+document.head.appendChild(style);
