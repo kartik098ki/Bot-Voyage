@@ -1,9 +1,9 @@
-# 🤖 ADVATRIP
+AI ADVATRIP(A AI POWDERED TOOL TO USE!)
 
 ADVATRIP is an AI-powered travel companion that helps users plan, explore, and experience journeys smarter.  
 It’s designed for hackathons, projects, and real-world use cases where AI + travel innovation meets!  
 
----
+---X
 
 ## ✨ Features (Prototype Ready ✅)  
 Our prototype is **fully functional** with AI-powered modules already live 🚀:  
